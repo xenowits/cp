@@ -1,5 +1,0 @@
-cpc
-pda
-maths -- deva
-algos -- randomised algorithms || -- 3 and 4
-dcn --
