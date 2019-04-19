@@ -12,6 +12,18 @@ int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-
+  int n;
+  cin >> n;
+  vector<ll> a(n+1);
+  fori(i,1,n)
+    cin >> a[i];
+  sort(a.begin()+1,a.end());
+  ll cost = 0;
+  fori(i,1,n)
+  {
+    cost += abs(a[i]-i);
+    //cout << a[i] << " " << i << " " << abs(a[i]-i) << endl;
+  }
+  cout << cost;
   return 0;
 }

@@ -12,6 +12,13 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
+    double x,y;
+    cin >> x >> y;
+    if (y*log(x) > x*log(y))
+      cout << ">";
+    else if (y*log(x) == x*log(y))
+      cout << "=";
+    else
+      cout << "<";
     return 0;
 }

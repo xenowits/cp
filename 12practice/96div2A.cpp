@@ -12,6 +12,22 @@ int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-
+  string s;
+  cin >> s;
+  int n = s.length();
+  bool likhega = false;
+  fori(i,0,n-1)
+  {
+      if (s[i] == 'H')
+        likhega = true;
+      if (s[i] == 'Q')
+        likhega = true;
+      if (s[i] == '9')
+        likhega = true;
+  }
+  if (likhega)
+    cout << "YES";
+  else
+    cout << "NO";
   return 0;
 }

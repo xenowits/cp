@@ -12,6 +12,14 @@ int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-
+  long int a,b,c,n;
+  cin >> n >> a >> b >> c;
+  int d = min(a,min(b,c));
+  if (n == 1)
+    cout << 0;
+  else if (d == a || d == b)
+    cout << (n-1)*d;
+  else
+    cout << (n-2)*d + min(a,b);
   return 0;
 }
