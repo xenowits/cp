@@ -21,9 +21,11 @@ public:
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-  int t = 500;
+  int t = 100;
   ofstream ss;
-  ss.open("testdata.txt", std::ios::app);
+  ofstream pp;
+  ss.open("testdata200.txt", std::ios::app);
+  pp.open("points.txt", std::ios::app);
   mt19937_64 rng(chrono::high_resolution_clock::now().time_since_epoch().count());
   vector<pair<double,int> > temp;
   vector<int> final;
@@ -59,15 +61,16 @@ int main() {
       temp.pb(mk(v[1].dist[j],j));
     }
     sort(temp.begin(),temp.end());
-    // cout << "FIRST WHITEWALKERS" << endl;
-    // for(auto a : temp)
-    //   cout << a.first << " " << a.second << endl;
-    // cout << endl;
     fori(j,0,4)
     {
         final.pb(temp[j].second);
-    }
-  }
+    }}
+    // fori(k,1,10)
+    // {
+    //   pp << v[k].x << " " << v[k].y << " ";
+    // }
+    // pp << endl;
+    //pp.close();
     fori(j,1,10)
     {
       // cout << "node " << j << " ";

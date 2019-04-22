@@ -73,9 +73,11 @@ int main()
     //cout<<"enter the no of testcases\n";
     cin>>t;
     //energy.resize(n,100.0);
-
+    mt19937_64 rng(chrono::high_resolution_clock::now().time_since_epoch().count());
+    int the_t = std::uniform_int_distribution<int>(1,t)(rng);
     array_graphs.resize(t);
     float a;
+    cout << the_t << " h kya" << endl;
     //cout<<"start entering the graphs \n";
     for(int i=0;i<t;i++)
     {
@@ -123,7 +125,12 @@ int main()
         }
         if(found)
           break;
-
+        if (curr_time == the_t)
+        {
+          int kukko = std::uniform_int_distribution<int>(8,15)(rng);
+          cout << kukko << endl;
+          return 0;
+        }
         for(int i=0;i<count_adjacent;i++)
         {
             vector<int> par(n);
