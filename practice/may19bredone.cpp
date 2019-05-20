@@ -13,6 +13,18 @@ int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-
+  int t,n;
+  cin >> t;
+  while (t>0)
+  {
+    cin >> n;
+    ll stg = n;
+    for (long i = n-1; i >= 1 ; --i)
+    {
+      stg = ((i*stg)%mod + (i + stg)%mod)%mod;
+    }
+    cout << stg%mod << endl;
+    --t;
+  }
   return 0;
 }

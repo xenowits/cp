@@ -13,6 +13,21 @@ int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-
+  int t;
+  cin >> t;
+  while (t>0)
+  {
+    int r,c;
+    cin > r >> c;
+    int arr[r+1][c+1];
+    fori(i,1,r)
+    {
+      fori(j,1,c)
+      {
+        cin >> arr[i][j];
+      }
+    }
+    
+  }
   return 0;
 }

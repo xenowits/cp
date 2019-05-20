@@ -7,7 +7,6 @@ using namespace std;
 #define mod 1000000007
 #define pb push_back
 #define ll long long
-#define rnd mt19937_64 rng(chrono::high_resolution_clock::now().time_since_epoch().count())
 
 int main()
 {

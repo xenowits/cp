@@ -49,17 +49,6 @@ long sum(long v, long tl, long tr, long l, long r)
   return sum(2*v, tl, tm, l, min(r,tm)) + sum(2*v+1, tm+1, tr, max(l, tm+1), r);
 }
 
-long getMax(long v, long tl, long tr, long l, long r)
-{
-  cout << tl << " " << tr << " " << l << " " << r << endl;
-  if (l > r)
-    return 0;
-  if (l == tl && r == tr)
-    return t[v];
-  long tm = (tl+tr)/2;
-  return getMax(2*v, tl, tm, l, min(r,tm)) + sum(2*v+1, tm+1, tr, max(l, tm+1), r);
-}
-
 void update(long v, long tl, long tr, long pos, long new_val)
 {
   if (tl == tr)
@@ -84,18 +73,15 @@ int main()
     cin >> n;
     fori(i,0,n-1)
       cin >> a[i];
-    // build(a,1,0,n-1);
-    // for (int i = 1; i <= 4*n ; ++i)
-    // {
-    //   cout << t[i] << endl;
-    // }
-    // cout << sum(1,0,n-1,1,4);
-    // update(1,0,n-1,2,1);
-    // cout << sum(1,0,n-1,1,4);
-    buildMax(a,1,0,n-1);
+    build(a,1,0,n-1);
     for (int i = 1; i <= 4*n ; ++i)
     {
-      cout << i << " " << t[i] << endl;
+      cout << t[i] << " ";
     }
+    cout << endl;
+    cout << sum(1,0,n-1,1,4);
+    cout << endl;
+    update(1,0,n-1,2,1);
+    cout << sum(1,0,n-1,1,4);
     return 0;
 }

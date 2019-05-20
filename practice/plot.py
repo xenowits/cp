@@ -20,8 +20,13 @@ for t in str1:
         if (a[i] is not '' and a[i+1] is not ''):
             a1.append(int(a[i]))
             a2.append(int(a[i+1]))
-    print(len(a1),len(a2))
-    plt.plot(a1,a2,'ro', alpha=0.7)
+    # print(len(a1),len(a2))
+    # x1, y1 = [a1[0], a2[0]], [a1[3],a2[3]]
+    # plt.plot(x1,y1,marker='o')
+    plt.plot(a1,a2,'ro')
     for i,txt in enumerate(n):
         plt.annotate(txt,(a1[i],a2[i]))
+    plt.title("AODV mobile graph")
+    plt.xlabel("x")
+    plt.ylabel("y")
     plt.show()

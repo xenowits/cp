@@ -7,12 +7,28 @@ using namespace std;
 #define mod 1000000007
 #define pb push_back
 #define ll long long
-#define rnd mt19937_64 rng(chrono::high_resolution_clock::now().time_since_epoch().count())
 
 int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-
+  int t;
+  cin >> t;
+  while (t>0)
+  {
+    int n,q,x,y;
+    cin >> n >> q;
+    vector<long> v(n+1);
+    fori(i,1,n)
+      cin >> v[i];
+    while (q>0)
+    {
+      cin >> x >> y;
+      ll cost = 0;
+      cout << v[y]-v[x]+ y-x << " " << y-x << endl;
+      q-=1;
+    }
+    t-=1;
+  }
   return 0;
 }
