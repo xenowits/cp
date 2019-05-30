@@ -13,6 +13,14 @@ int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-  
+  ll n,m,u,v;
+  cin >> n >> m;
+  vector<ll> adj[n+1];
+  fori(i,1,m)
+  {
+    cin >> u >> v;
+    adj[u].pb(v);
+    adj[v].pb(u);
+  }
   return 0;
 }

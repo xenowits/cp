@@ -32,25 +32,23 @@ int main()
     {
       fori(j,1,c)
       {
-        if (i == 1 || i == r || j == 1 || j == c)
+        int count = 0;
+        if (i>1)  //top
+          count += 1;
+        if (j>1)  //left
+          count += 1;
+        if (j<c)  //right
+          count += 1;
+        if (i<r)  //bottom
+          count += 1;
+        if (count <= arr[i][j])
         {
-            if ((i == 1 && j == 1) || (i == 1 && j == c) || (i == r && j == 1) || (i == r && j == c))
-            {
-              if (2 <= arr[i][j])
-                stable = false;
-            }
-            else
-            {
-              if (3 <= arr[i][j])
-                stable = false;
-            }
-        }
-        else
-        {
-          if (4 <= arr[i][j])
-            stable = false;
+          stable = false;
+          break;
         }
       }
+      if (!stable)
+        break;
     }
     if (!stable)
       cout << "Unstable" << endl;
