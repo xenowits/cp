@@ -14,6 +14,16 @@ int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-
+  ll x,y,z;
+  cin >> x >> y >> z;
+  ll a = x%z; ll b = y%z;
+  ll total = x/z+y/z;
+  ll temp = 0;
+  if (a+b >= z)
+  {
+    total += 1;
+    temp = z-max(a,b);
+  }
+  cout << total << " " << temp;
   return 0;
 }

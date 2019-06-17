@@ -14,6 +14,10 @@ int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-
+  int a = 5;double b = 4.999999999999999;
+  if (a==b)
+    cout << "sahi h" << endl;
+  else
+    cout << "tatti" << endl;
   return 0;
 }

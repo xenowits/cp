@@ -14,6 +14,22 @@ int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-
+  int n;
+  cin >> n;
+  bool even = false, odd = false;
+  vector<ll> v(n);
+  fori(i,0,n-1)
+  {
+    cin >> v[i];
+    if (v[i]&1)
+      odd = true;
+    else
+      even = true;
+  }
+  if (even && odd)
+    sort(v.begin(),v.end());
+  for(auto i : v)
+    cout << i << " ";
+  cout << endl;
   return 0;
 }
