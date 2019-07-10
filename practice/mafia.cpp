@@ -15,6 +15,21 @@ int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-
+  int n;
+  cin >> n;
+  vector<ll> v(n+1);
+  ll sum = 0, max_v = INT_MIN;
+  fori(i,1,n)
+  {
+    cin >> v[i];
+    sum += v[i];
+    max_v = max(max_v,v[i]);
+  }
+  ll rounds = (int)(ceil((sum*1.0)/(n-1)));
+  //cout << sum/(n-1) << endl;
+  //cout << rounds << " is the no of rounds" << endl;
+  if (rounds < max_v)
+    rounds = max_v;
+  cout << rounds << endl;
   return 0;
 }
