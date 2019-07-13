@@ -13,11 +13,25 @@ using namespace std;
 #define s second
 #define f first
 
-
 int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-
+  int n,a;
+  cin >> n;
+  vector<pi> v;
+  ll sum = 0;
+  fori(i,1,n)
+  {
+    cin >> a;
+    v.pb(mk(a,i));
+    sum += a;
+  }
+  ll x = (2*sum)/n;
+  sort(v.begin(),v.end());
+  fori(i,0,n/2-1)
+  {
+    cout << v[i].s << " " << v[n-i-1].s << endl;
+  }
   return 0;
 }

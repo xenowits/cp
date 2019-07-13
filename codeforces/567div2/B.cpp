@@ -14,6 +14,16 @@ int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
+  ll l;
+  cin >> l;
+  string s;
+  cin >> l >> s;
+  if (l%2 == 1)
+  {
+    ll temp = l/2;
+    string a = s.substr(0,temp-1);
+    string b = s.substr(temp,l-1);
 
+  }
   return 0;
 }

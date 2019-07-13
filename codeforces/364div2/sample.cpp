@@ -13,7 +13,6 @@ using namespace std;
 #define s second
 #define f first
 
-
 int main()
 {
   ios_base::sync_with_stdio(false);
