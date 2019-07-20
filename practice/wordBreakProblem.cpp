@@ -13,12 +13,43 @@ using namespace std;
 #define fs first
 #define sc second
 
+map<string,ll> cnt;
+string str;
+
+bool solve(int p, int q)
+{
+  string temp = str.substr(p,q-p+1);
+  if (cnt[temp] >= 1)
+    return 1;
+  bool truth = 0;
+  fori(i,p,q-1)
+  {
+    truth = truth || ( solve(p,i) && solve(i+1,q) );
+  }
+  return truth;
+}
+
 int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-  ll n,e;
-  cin >> n >> e;
-  
+
+  ll n;
+  cin >> n;
+
+  while (n)
+  {
+    cin >> str;
+    cnt[str] += 1;
+    n-=1;
+  }
+
+  cin >> str;
+
+  if (solve(0,str.length()-1 ))
+    cout << "Yes ha ho skta h";
+  else
+    cout << "Naah re nhi ho skta";
+
   return 0;
 }

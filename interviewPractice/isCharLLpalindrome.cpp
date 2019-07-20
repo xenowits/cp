@@ -1,3 +1,6 @@
+#include <bits/std++.h>
+using namespace std;
+
 bool isPalindrome(Node *head)
 {
     int len = 0;
@@ -24,4 +27,9 @@ bool isPalindrome(Node *head)
         stk.pop();
     }
     return 1;
+}
+
+int main()
+{
+
 }
