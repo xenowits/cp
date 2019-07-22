@@ -49,7 +49,7 @@ Node* findSet(Node *a)
 
   if (a != a->parent)
     a->parent = findSet(a->parent);
-    
+
   return a->parent;
 }
 
