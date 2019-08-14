@@ -15,6 +15,26 @@ using namespace std;
 
 int main()
 {
-  
+  int n;
+  cin >> n;
+  vector<long> v(n), dup(n);
+  fori(i,0,n-1)
+  {
+    cin >> v[i];
+    dup[i] = v[i];
+  }
+  sort(v.begin(), v.end());
+  long cnt = 0;
+  for(int i = 0 ; i < n; ++i)
+  {
+    if (v[i] != dup[i])
+      cnt += 1;
+    if (cnt > 2)
+    {
+      cout << "NO" << endl;
+      return 0;
+    }
+  }
+  cout << "YES" << endl;
   return 0;
 }

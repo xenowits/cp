@@ -15,6 +15,27 @@ using namespace std;
 
 int main()
 {
-  
+  int n,m,l,r;
+  string s;
+  cin >> s >> m;
+  n = s.length();
+  vector<int> v(n+1,0), ans(n+1,0);
+  for(int i = 0 ; i < n-1; ++i)
+  {
+    if (s[i] == s[i+1])
+      v[i+1] = 1;
+  }
+  ans[1] = v[1];
+  for (int i = 2; i <= n; ++i)
+  {
+      ans[i] = ans[i-1]+v[i];
+      //cout << ans[i] << " ";
+  }
+  //cout << endl;
+  while (m--)
+  {
+    cin >> l >> r;
+    cout << ans[r-1] - ans[l-1] << endl;
+  }
   return 0;
 }
