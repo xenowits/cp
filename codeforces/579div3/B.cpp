@@ -19,84 +19,45 @@ int main()
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
-  int n;
-  cin >> n;
-  ll temp;
-  map<ll,ll> mp;
-  for(int i = 1; i <= n; ++i)
-  {
-    cin >> temp;
-    mp[temp] += 1;
-  }
-  vector<ll> triples;
-  set<ll, greater<ll> > doubles, singles;
-  set<ll> st;
+  int q;
+  cin >> q;
 
-  for(auto x : mp)
+  while(q--)
   {
-    if (x.sc == 1)
-      singles.insert(x.fs);
-    if (x.sc == 2)
-      doubles.insert(x.fs);
-    else if (x.sc > 2)
-      triples.pb(x.fs);
-  }
+    int n;
+    cin >> n;
+    int tot = 4*n;
+    vector<int> v(tot);
+    fori(i,0,tot-1)
+      cin >> v[i];
+    sort(v.begin(), v.end());
 
-  for(auto x : triples)
-  {
-    // if (x == 1 && st.find(2) == st.end())
-    //   st.insert(2);
-    //cout << x << " s ";
-    st.insert(x);
-    st.insert(x+1);
-    if (x > 1)
-      st.insert(x-1);
-  }
-  cout << st.size() << endl;
-  for (auto x : doubles)
-  {
-    // if (x == 1 && st.find(2) == st.end())
-    //   st.insert(2);
-    cout << x << " d ";
-    int cnt = 0;
-    if (st.find(x+1) == st.end())
-      st.insert(x+1), cnt+=1;
-
-    if (st.find(x) == st.end())
+    bool good = 1;
+    for(int i =  0; i < tot-1; i+=2)
     {
-        st.insert(x);
-        cnt += 1;
+      if (v[i] != v[i+1])
+      {
+        good = 0;
+        break;
+      }
     }
-    if (cnt == 2)
-      continue;
-    else if (x > 1 && st.find(x-1) == st.end())
-      st.insert(x-1);
+    if (!good)
+      cout << "NO" << endl;
 
-  }
-  for (auto p : st)
-    cout << p << " ";
-  cout << endl;
-  for(auto x : singles)
-  {
-    cout << x << " s ";
-    if (st.find(x+1) == st.end())
-      st.insert(x+1);
-
-    else if (st.find(x) == st.end())
+    else
     {
-        st.insert(x);
+      long area = v[0]*v[tot-1];
+      for(int i =  0, j = tot-1; i < tot-1, j >= 0; i+=2, j-=2)
+      {
+        if (v[i]*v[j] != area)
+        {
+          good = 0;
+          break;
+        }
+      }
+      cout << (good ? "YES" : "NO") << endl;
     }
-
-    else if (x > 1 && st.find(x-1) == st.end())
-      st.insert(x-1);
-
   }
-  cout << endl;
-  for(auto p : st)
-    cout << p << " ";
-  cout << endl;
-
-  cout << st.size() << endl;
 
   return 0;
 }

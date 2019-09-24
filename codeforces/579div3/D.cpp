@@ -14,24 +14,23 @@ using namespace std;
 #define fs first
 
 string s,t;
-int n, ans = INT_MIN;
+int n, ans = 0;
 int n1;
 
-void solve(string temp, int len)
+void solve(string temp, string some, int len)
 {
   if (temp.length() < n1)
     return;
   int i = 0, j = 0;
-  while (i < temp.length())
+  while (i < temp.length() && j < n1)
   {
     if (t[j] == temp[i])
       j+=1;
     i += 1;
   }
-  if (j == n1-1)
+  if (j == n1)
   {
     ans = max(ans,len);
-    cout << len << " ans h" << endl;
   }
 }
 
@@ -51,10 +50,12 @@ int main()
       string temp1 = s.substr(0,i);
       string temp2 = s.substr(i+len,n-i-len);
       temp1 = temp1 + temp2;
-    //  cout << temp1 << endl;
-      solve(temp1,len);
+
+      solve(temp1,temp2,len);
     }
   }
+
   cout << ans << endl;
+  
   return 0;
 }
