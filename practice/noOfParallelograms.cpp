@@ -7,59 +7,51 @@ using namespace std;
 #define mod 998244353
 #define pb push_back
 #define ll long long
-#define MAXN 1005
+#define MAXN 300001
 #define rnd mt19937_64 rng(chrono::high_resolution_clock::now().time_since_epoch().cnt())
 #define pi pair<long long int,long long int>
 #define sc second
 #define fs first
 
-vector<int> adj[MAXN];
+struct point{
+  ll x, y;
+  point(ll a, ll b) : x(a), y(b){}
+};
 
 int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
-  int n,m,x,y;
-  cin >> n >> m;
+  ll n,a,b;
+  cin >> n;
 
-  vector<pi> v;
-  vector<int> val(n+1);
+  vector<point> v;
+
   fori(i,1,n)
   {
-    cin >> x;
-    v.pb(mk(x,i));
-    val[i] = x;
+    cin >> a >> b;
+    v.emplace_back(a,b);
   }
 
-  fori(i,1,m)
+  map<ll,ll> mp;
+
+  fori(i,0,n-1)
   {
-    cin >> x >> y;
-    adj[x].pb(y);
-    adj[y].pb(x);
+    fori(j,i+1,n-1)
+    {
+      ll temp1 = (v[i].x+v[j].x);
+      ll temp2 = (v[i].y+v[j].y);
+      ll cantor_pair_value = (temp1+temp2)*(temp1+temp2+1)/2 + temp2;
+      mp[cantor_pair_value] += 1;
+    }
   }
 
   ll ans = 0;
 
-  vector<bool> visited(n+1,0);
-
-  sort(v.begin(), v.end());
-
-  reverse(v.begin(), v.end());
-
-  for(auto x : v)
+  for(auto p : mp)
   {
-    if (!visited[x.sc])
-    {
-      visited[x.sc] = 1;
-      //cout << x.fs << " " << x.sc << endl;
-      for(auto i : adj[x.sc])
-      {
-        if (!visited[i])
-          ans += val[i];
-      }
-      //cout << ans << endl;
-    }
+    ans += p.sc*(p.sc-1)/2;
   }
 
   cout << ans << endl;
