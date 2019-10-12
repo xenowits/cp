@@ -1,3 +1,4 @@
+//Jai maa durge
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -24,11 +25,24 @@ ll ansCalculator(int base, string s)
       ans += temp*(s[i]-'0');
     else
       ans += temp*(s[i]-'A'+10);
+    if (temp > MAXN)
+      return -1;
     temp *= base;
   }
-  if (ans > MAXN)
-    return -1;
   return ans;
+}
+
+int func(string s)
+{
+  int maxima = 1, n = s.size();
+  fori(i,0,n-1)
+  {
+    if (s[i] >= '0' && s[i] <= '9')
+      maxima = max(maxima,s[i]-'0');
+    else
+      maxima = max(maxima,s[i]-'A'+10);
+  }
+  return maxima+1;
 }
 
 int main()
@@ -58,15 +72,22 @@ int main()
       set<ll> st;
       if (x.fs == -1)   //traverse through all bases (2-32)
       {
-        fori(i,2,36)
+        int min_base = func(x.sc);
+
+        fori(i,min_base,36)
         {
-          st.insert(ansCalculator(i,x.sc));
+          ll total = ansCalculator(i,x.sc);
+          if (total != -1)
+            st.insert(total);
         }
       }
       else
       {
-        st.insert(ansCalculator(x.fs, x.sc));
+        ll total = ansCalculator(x.fs,x.sc);
+        if(total != -1)
+          st.insert(total);
       }
+
       for (auto p : st)
         mp[p] += 1;
     }
@@ -76,7 +97,7 @@ int main()
     ll ans = -1;
     for (auto p : mp)
     {
-      if (p.sc == n)
+      if (p.sc == n && p.fs <= MAXN)
       {
         ans = p.fs;
         break;
