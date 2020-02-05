@@ -1,3 +1,4 @@
+//xenowitz -- Jai Shree Ram
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -8,7 +9,9 @@ using namespace std;
 #define pb push_back
 #define ll long long
 #define rnd mt19937_64 rng(chrono::high_resolution_clock::now().time_since_epoch().count())
-#define pi pair<int,int>
+#define pi pair<long long int,long long int>
+#define fs first
+#define sc second
 
 int main()
 {
