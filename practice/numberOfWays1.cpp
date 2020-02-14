@@ -15,23 +15,50 @@ using namespace std;
 #define sc second
 #define fs first
 
-ll binpow(ll a, ll b) {
-    ll res = 1;
-    while (b > 0) {
-        if (b & 1)
-            res = res * a;
-        a = a * a;
-        b >>= 1;
-    }
-    return res;
-}
 
 int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
+  int n;
+  cin >> n;
 
+  vector<ll> v(n+1,0), prefixSum(n+1,0);
+  vector<ll> counter(n+3,0);
+
+  ll sum = 0;
+  fori(i,1,n) {
+    cin >> v[i];
+    sum += v[i];
+    prefixSum[i] = sum;
+  }
+
+  if (sum%3) {
+    cout << 0 << endl;
+    exit(0);
+  }
+
+  sum /= 3;
+  ll temp = 0;
+
+  ford(i,n,1) {
+    temp += v[i];
+    if (temp == sum) {
+      counter[i] += (1+counter[i+1]);
+    } else {
+      counter[i] += counter[i+1];
+    }
+  }
+
+  ll cnt = 0;
+  fori(i,2,n-1) {
+    if (prefixSum[i-1] == sum) {
+      cnt += counter[i+1];
+    }
+  }
+
+  cout << cnt << endl;
 
 	return 0;
 }

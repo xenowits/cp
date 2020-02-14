@@ -31,7 +31,27 @@ int main()
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
+  int t;
+  cin >> t;
 
+  while (t--) {
+    string sa, sb, sc;
+    cin >> sa >> sb >> sc;
+    int n = sa.length();
+    bool flag = true;
+    fori(i,0,n-1) {
+      if ((sa[i] == sc[i]) || (sb[i] == sc[i])) {
+
+      } else {
+        flag = false;
+        break;
+      }
+    }
+    if (flag)
+      cout << "YES" << endl;
+    else
+      cout << "NO" << endl;
+  }
 
 	return 0;
 }

@@ -31,7 +31,28 @@ int main()
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
+  int t;
+  cin >> t;
 
+  while (t--) {
+    ll n, m;
+    cin >> n >> m;
+    ll temp = (ll)ceil(n/2.0);
+    if (m >= temp) {
+      cout << n*(n+1)/2 - (n-m) << endl;
+    } else {
+      ll ans = n*(n+1)/2;
+      ll sexu = (n-m)/(m+1);
+      ll sexmod = (n-m)%(m+1);
+      if (sexmod == 0) {
+        ans -= (m+1)*(sexu*(sexu+1)/2);
+      } else {
+        ans -= (sexmod*(sexu+1)*(sexu+2)/2 + (m+1-sexmod)*(sexu)*(sexu+1)/2);
+      }
+      cout << ans << endl;
+
+    }
+  }
 
 	return 0;
 }
