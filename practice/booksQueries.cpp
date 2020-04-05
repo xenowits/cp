@@ -31,7 +31,13 @@ int main()
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 
+	int q;
+      	cin >> q;
+	int a, b;
+	while (q--) {
+		cin >> a >> b;
 
+	}
 
 	return 0;
 }

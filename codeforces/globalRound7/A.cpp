@@ -31,7 +31,31 @@ int main()
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 
-
+	int t;
+	cin >> t;
+	
+	while (t--) {
+		ll n;
+		cin >> n;
+		if (n == 1) {
+			cout << -1 << endl;
+		} else if (n == 2) {
+			cout << 57 << endl;
+		} else if (n == 3) {
+			cout << 239 << endl;
+		} else if ((4*n)%3 == 0) {
+			cout << 5;
+			fori(i,1,n-3) {
+				cout << 4;
+			}
+			cout << "23" << endl;
+		} else {
+			fori(i,1,n-2) {
+				cout << 4;
+			}
+			cout << "23" << endl;
+		}
+	}	
 
 	return 0;
 }

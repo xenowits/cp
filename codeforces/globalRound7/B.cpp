@@ -31,7 +31,28 @@ int main()
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 
+	ll n;
+	cin >> n;
+	
+	vector<ll> barr(n,0), arr(n,0);
+	fori(i,0,n-1) {
+		cin >> barr[i];
+	}
 
+	ll temp = 0;
+
+	arr[0] = barr[0];
+	temp = max((ll)0,arr[0]);
+
+	fori(i,1,n-1) {
+		arr[i] = barr[i]+temp;
+		temp = max(temp,arr[i]);
+	}
+
+	fori(i,0,n-1) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
 
 	return 0;
 }

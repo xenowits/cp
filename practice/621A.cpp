@@ -28,10 +28,27 @@ ll binpow(ll a, ll b) {
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
 
+  int t;
+  cin >> t;
 
-
+  while (t--) {
+    int n, d;
+    cin >> n >> d;
+    vector<int> v(n+1,0);
+    fori(i,1,n) {
+      cin >> v[i];
+    }
+    fori(i,2,n) {
+      for(int j = v[i];(d >= (i-1) && j > 0);) {
+        v[1] += 1;
+        d -= (i-1);
+        j -= 1;
+      }
+    }
+    cout << v[1] << endl;
+  }
 	return 0;
 }

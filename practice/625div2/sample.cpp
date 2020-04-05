@@ -30,8 +30,34 @@ int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
-
-
-
+	
+	int n;
+	cin >> n;
+	vector<int> b(n+1,0);
+	map<int,int> mp;
+	//map stores the index(x) closest to b[i] where b[i]-b[x]=i-x
+	//fori(i,1,n) {
+	//	cin >> b[i];
+	//	mp[b[i]-i] = i;
+	//}
+	vector<ll> dp(n+1,0);
+	fori(i,1,n) {
+		cin >> b[i];	
+		int temp = b[i]-i;
+		//find if temp is already present
+		if (mp[temp] != 0) {
+			dp[i] = b[i]+dp[mp[temp]];
+			//cout << i << " " << mp[temp] << " " << temp << endl;
+		} else {
+			dp[i] = b[i];
+			//cout << i << " " << b[i] << " aisa bhi" << endl;
+		}
+		mp[b[i]-i] = i;
+	}
+	ll ans = INT_MIN;
+	fori(i,1,n) {
+		ans = max(ans,dp[i]);
+	}
+	cout << ans << endl;
 	return 0;
 }

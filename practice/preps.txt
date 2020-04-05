@@ -1,0 +1,47 @@
+1. Advanced DS:
+	Segment Tree, Fenwick tree, HashMap, Map, Trie, RB Tree, AVL Tree
+2. Graphs:
+	PDF (Bipartite + Flow+ Hamiltonian + Euler)
+3. Algorithms + DataStructures:
+	PDF + GFG + DP + InterviewBit + LeetCode
+4. System Design:
+	Gaurav Sen + Some PDF
+5. OOPS:
+	C++ OOPs GFG, C programming
+6. SUBJECTS:
+	6.1. OS: Abraham Silberschatz, Andrew S. Tanenbaum:
+		. Virtual Memory
+		. Processes and Threads
+		. File System(Silber)
+		. Scheduling
+		. Deadlock 
+	6.2. DBMS: Korth Sudarshan Silberschatz
+		. Relational Model
+		. SQL
+		. ER Model
+		. ** Normal forms
+		. Indexing and Hashing
+		. Transaction Management
+	6.3. Cryptography: 
+		. Block and Stream Ciphers
+		. AES , DES
+		. Cryptographic Hash functions
+		. Digital Signatures
+		. Public Key Cryptography and RSA
+
+	6.4. Networking:
+		. GFG + FOROUZAN + InterviewBit + *IP Addressing + Protocols
+	6.5. CO&CA:
+		. Pipelining
+		. Caching(eg set associative caches)
+		. Hazards
+		. Performance
+		. Memory hierarchy
+	6.6. Aptitude, Puzzles and Probability&Expectations:
+		GFG, (eg work and time puzzles)
+	6.7. Software Engineering:
+		SOLID principles, Models
+
+<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>
+
+		

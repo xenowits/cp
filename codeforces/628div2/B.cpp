@@ -7,19 +7,33 @@ using namespace std;
 #define mk make_pair
 #define mod 1000000007
 #define pb push_back
-#define eb emplace_back
 #define vec vector<long long int>
 #define ll long long
 #define rnd mt19937_64 rng(chrono::high_resolution_clock::now().time_since_epoch().count())
 #define pi pair<long long int,long long int>
 #define sc second
 #define fs first
-#define stf shrink_to_fit
+
 
 int main()
 {
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
 
-  return 0;
+	int t;
+	cin >> t;
+
+	while (t--) {
+		int n;
+		cin >> n;
+		vector<int> v(n,0);
+		map<ll,ll> mp;
+		fori(i,0,n-1) {
+			cin >> v[i];
+			mp[v[i]] += 1;
+		}
+		cout << (mp.size()) << endl;
+	}
+
+	return 0;
 }

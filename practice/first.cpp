@@ -28,10 +28,25 @@ ll binpow(ll a, ll b) {
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
 
-
+  int t = 1;
+  cin >> t;
+  while(t--) {
+    ll n;
+    cin >> n;
+    vector<ll> v(n+1,0);
+    ll odd = 0, even = 0;
+    fori(i,1,n) {
+      cin >> v[i];
+      if (v[i]%2)
+        odd += 1;
+      else
+        even += 1;
+    }
+    cout << odd*even << endl;
+  }
 
 	return 0;
 }

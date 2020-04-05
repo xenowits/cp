@@ -28,10 +28,32 @@ ll binpow(ll a, ll b) {
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
 
+  ll n;
+  cin >> n;
+  vector<int> v(n+1,0);
+  fori(i,1,n)
+    cin >> v[i];
 
+  vector<ll> prevPosition(MAXN,0), finalAns(n+1,0);
+
+  fori(i,1,n) {
+    finalAns[i] = prevPosition[v[i]];
+    prevPosition[v[i]] = i;
+  }
+
+  double ans = 0;
+  fori(i,1,n) {
+    // cout << finalAns[i] << " for i" << endl;
+    ans += 2*(i-finalAns[i])*(n-i+1)-1;
+    // cout << ans << endl;
+  }
+
+  ans = ans/(n*n+0.000000);
+
+  cout << fixed << setprecision(6) << ans << endl;
 
 	return 0;
 }

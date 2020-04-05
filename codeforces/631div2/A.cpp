@@ -31,7 +31,35 @@ int main()
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 
+	int t;
+	cin >> t;
 
+	while (t--) {
+		int n, x, temp;
+		cin >> n >> x;
+		vector<int> arr(210,0);
+		fori(i,0,n-1) {
+			cin >> temp;
+			arr[temp] += 1;
+		}
+		//we have x more chances
+		int indx = 1;
+		while (x > 0) {
+			if (arr[indx] == 0) {
+				x -= 1;
+				arr[indx] += 1;
+			}
+			indx += 1;
+		}
+		int ans = 0;
+		fori(i,1,205) {
+			if (arr[i] == 0) {
+				break;
+			}
+			ans += 1;
+		}
+		cout << ans << endl;
+	}	
 
 	return 0;
 }

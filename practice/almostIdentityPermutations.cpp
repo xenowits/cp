@@ -30,8 +30,24 @@ int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
+	
+	//the problem is based on Derangements(!n)
+	ll n, k;
+	cin >> n >> k;
 
+	ll ans = 1;	//for identity permutation
+	if (k >= 1)
+		ans += 0;
+	if (k >= 2)
+		ans += n*(n-1)/2;
+	//cout << ans << " " << k << endl;
+	if (k >= 3)
+		ans += (n*(n-1)*(n-2)/6)*2;
+	//cout << ans << endl;
+	if (k >= 4)
+		ans += (n*(n-1)*(n-2)*(n-3)/24)*9;
 
+	cout << ans << endl;	
 
 	return 0;
 }
